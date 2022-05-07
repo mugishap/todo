@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const todoSchema = new mongoose.Schema({
-    user: {
+    username: {
         type: String
     },
     time: {
@@ -14,6 +14,5 @@ const todoSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     }
-
-
 })
+module.exports.todoSchema = mongoose.model('todos', todoSchema)
