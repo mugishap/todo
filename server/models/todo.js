@@ -2,13 +2,15 @@ const mongoose = require('mongoose')
 
 const todoSchema = new mongoose.Schema({
     username: {
-        type: String
+        type: String,
+        required:true
     },
     time: {
-        type: String
+        type: new Date().getTime()
     },
     content: {
-        type: String
+        type: String,
+        required:true
     },
     doneStatus: {
         type: Boolean,
