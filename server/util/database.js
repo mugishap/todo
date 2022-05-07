@@ -1,8 +1,10 @@
 const mongoose = require('mongoose')
-require('dotenv').config()
-
-module.exports = function () {
-    mongoose.connect(process.env.DB_URL, () => {
-        console.log('Connected to database.....')
+module.exports = function() {
+    mongoose.connect(process.env.DB_URL, (err, con) => {
+        if (err) {
+            console.log("failed to connect due to " + err)
+        } else {
+            console.log("connected to mongodb")
+        }
     })
 }
