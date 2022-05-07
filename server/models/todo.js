@@ -3,14 +3,15 @@ const mongoose = require('mongoose')
 const todoSchema = new mongoose.Schema({
     username: {
         type: String,
-        required:true
+        required: true
     },
     time: {
-        type: new Date().getTime()
+        type: Date,
+        default: new Date().getTime()
     },
     content: {
         type: String,
-        required:true
+        required: true
     },
     doneStatus: {
         type: Boolean,
