@@ -2,14 +2,9 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const app = express()
-const mongoose = require('mongoose')
-require('dotenv').config()
+const mongo = require('./util/database')
 
+mongo()
 app.use(bodyParser.json())
-
-const dbConnection = () => {
-    mongoose.connect(process.env.DB_URL, () => {
-        console.log('Connected to database.....')
-    })
-}
-dbConnection()
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(cors())
